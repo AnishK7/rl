@@ -1,0 +1,79 @@
+{% load static %}
+<html>
+<head>
+  <title>Content Analyzer</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <!--<header align=center style="background-color:#6D7993;font-size:30px;font-family: sans-serif;color:#C0C0C0">
+    Content Analyzer
+  </header>
+-->
+  <div class=main_div>
+    <!--<div class=right_div>
+      <h3>Filter By Date:</h3>
+        <form>
+          <input type=radio name=date_fil value="24 hours">24 hours<br>
+          <input type=radio name=date_fil value="Past week">Past week<br>
+          <input type=radio name=date_fil value="Past month">Past month<br>
+          <input type=radio name=date_fil value="Past 6 months">Past 6 months<br>
+          <input type=radio name=date_fil value="Past year">Past year<br>
+          <input type=radio name=date_fil value="Past 2 years">Pass 2 years<br>
+          <input type=radio name=date_fil value="Past 4 years">Past 4 years<br>
+        </form>
+        <hr>
+        <input type=checkbox name=sel>Only B2b Publisher
+-->
+    
+    
+      
+    <div class="jumbotron">
+    <h1 class="text-center">
+      Content Analyzer
+    </h1>
+  </div>
+    <div class="container"> 
+      <form action = "#" method = "post" role = "form">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="textbox">Enter product id:</label>
+            <input type=text name=txt1 class="form-control" placeholder="Enter Amazon Standard Identification Number such as B07G7Z51VB">
+          </div>
+          <div class="row align-items-center justify-content-center">
+            <button type=submit name=but1 class="btn btn-primary btn-lg">Search</button>
+          </div>
+    
+           
+      </form>
+
+      <h1>{{ return_code }}</h1>
+    </div>
+    
+
+
+ 
+   
+     
+   
+    <!--<div class=well>
+      <p>{{ output }}</p>
+    </div>-->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
