@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+<head>
+  <meta charset="utf-8" />
+  <title>Visualization</title>
+  <!-- import plugin script -->
+  <script src="{% static 'guestbook/Chart.min.js' %}">
+    </script>
+</head>
+
+<div class="row align-items-center justify-content-center">
+<body>
+<!-- bar chart canvas element -->
+<canvas id="myChart" width="600" height="400"></canvas>
+
+<script type="text/javascript">
+Chart.defaults.global.responsive = false;
+ 
+var tier = JSON.parse('{{ labels|safe }}');
+console.log(tier.length);
+var percent = JSON.parse('{{ data|safe }}');
+console.log(percent.length);
+
+
+// define the chart data
+var chartData = {
+  labels : tier,
+  datasets : [{
+      label: "Sentiments for chosen product",
+      backgroundColor: ["red", "yellow", "green"],
+      data : percent,
+  }]
+}
+ 
+// get chart canvas
+var ctx = document.getElementById("myChart").getContext("2d");
+
+// create the chart using the chart canvas
+var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: chartData,
+});
+
+
+document.write(tier)
+document.write(percent)
+</script>
+</div>   
+    </body>
+    </html>
