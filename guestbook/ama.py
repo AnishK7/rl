@@ -8,10 +8,10 @@ from time import sleep
 import requests
 
 
-def ParseReviews(asin):
+def ParseReviews(asin,page_start,page_end):
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'}
     reviews_list = []
-    for j in range(1,5):
+    for j in range(page_start,page_end):
         
         if j==1:
             amazon_url  = 'http://www.amazon.in/dp/'+ asin
@@ -38,10 +38,6 @@ def ParseReviews(asin):
         
         if not reviews:
             reviews = parser.xpath(XPATH_REVIEW_SECTION_2)
-        
-        
-
-
 
         for review in reviews:
             XPATH_RATING  = './/i[@data-hook="review-star-rating"]//text()'
@@ -111,7 +107,7 @@ def ParseReviews(asin):
         #return {"error": "failed to process the page", "url": amazon_url}
             
 
-def ReadAsin(asin):
+def ReadAsin(asin,page_start,page_end):
     # Add your own ASINs here
     #AsinList = ['B07G7Z51VB']
     extracted_data = []
@@ -119,7 +115,7 @@ def ReadAsin(asin):
 
     #for asin in AsinList:
     print("Downloading and processing page http://www.amazon.in/dp/" + asin)
-    extracted_data=ParseReviews(asin)
+    extracted_data=ParseReviews(asin,page_start,page_end)
     
     sleep(5)
     dump(extracted_data, f, indent=4)

@@ -24,9 +24,10 @@ class Review:
 		self.get_rating_score()
 		#print(self.text_score + self.rating_score)
 		return self.text_score + self.rating_score
-
+'''
 if __name__ == '__main__':
 	data = json.loads(open('guestbook/data.json').read())
 	for product in data:
 		review = Review(product)
 		print(review.get_score())
+'''
