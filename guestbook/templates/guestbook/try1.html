@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+<head>
+  <title>Content Analyzer</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+ 
+  <div class=main_div>
+  
+    <div class="jumbotron">
+    <h1 class="text-center">
+      Content Analyzer
+    </h1>
+  </div>
+    <div class="container"> 
+      <form action = "#" method = "post" role = "form">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="textbox">Enter product id:</label>
+            <input type=text name=txt1 class="form-control" placeholder="Enter Amazon Standard Identification Number such as B07G7Z51VB">
+          </div>
+          <div class="row align-items-center justify-content-center">
+            <button type=submit name=but1 class="btn btn-primary btn-lg">Search</button>
+          </div>
+    
+           
+      </form>
+
+      
+    </div>
+    
+
+
+ 
+   
+     
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
